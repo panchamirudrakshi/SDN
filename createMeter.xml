@@ -1,0 +1,24 @@
+/**To create an meter with the band type drop which limits the bandwidth to 50000kbps you can use the following REST call:
+*Address (change "ip" and "openflow:1" according to your settings):
+*PUT http://ip:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/meter/1
+*/
+XML:
+<meter 
+xmlns="urn:opendaylight:flow:inventory">
+<meter-id>1</meter-id>
+<container-name>mymeter</container-name>
+<meter-name>mymeter</meter-name>
+<flags>meter-kbps</flags>
+<meter-band-headers>
+<meter-band-header>
+<band-id>0</band-id>
+<band-rate>50000</band-rate>
+<meter-band-types>
+<flags>ofpmbt-drop</flags>
+</meter-band-types>
+<band-burst-size>0</band-burst-size>
+<drop-rate>50000</drop-rate>
+<drop-burst-size>0</drop-burst-size>
+</meter-band-header>
+</meter-band-headers>
+</meter>

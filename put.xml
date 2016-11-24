@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flowxmlns="urn:opendaylight:flow:inventory">
+<strict>false</strict>
+<instructions>
+<instruction>
+<order>0</order>
+<go-to-table>
+<table_id>1</table_id>
+</go-to-table>
+</instruction>
+</instructions>
+<table_id>0</table_id>
+<id>256</id>
+<cookie_mask>10</cookie_mask>
+<installHw>false</installHw>
+<match>
+<ipv4-source>192.168.11.0/24</ipv4-source>
+<ipv4-destination>192.168.11.0/24</ipv4-destination>
+<ip-match>
+19
+<ip-protocol>4</ip-protocol>
+</ip-match>

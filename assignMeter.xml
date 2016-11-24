@@ -1,0 +1,43 @@
+/**To assign a meter with id 1 to a flow (which should be limited to band of the meter) with id 10.
+*PUT http://ip:8181/restconf/config/opendaylightinventory:
+*nodes/node/openflow:1/table/100/flow/10
+*/
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="urn:opendaylight:flow:inventory">
+<priority>2</priority>
+<hard-timeout>0</hard-timeout>
+<idle-timeout>0</idle-timeout>
+<flow-name>dl_dst-tb7-p2p4</flow-name>
+<cookie_mask>255</cookie_mask>
+<cookie>7</cookie>
+<match>
+<ethernet-match>
+<ethernet-destination>
+<address>00:1b:21:8b:83:93</address>
+</ethernet-destination>
+</ethernet-match>
+</match>
+<id>10</id>
+<table_id>100</table_id>
+<instructions>
+<instruction>
+<order>0</order>
+<meter>
+<meter-id>1</meter-id>
+</meter>
+</instruction>
+<instruction>
+<order>1</order>
+<apply-actions>
+<action>
+<order>0</order>
+<output-action>
+<output-node-connector>openflow:1:31</output-node-connector>
+<max-length>60</max-length>
+</output-action>
+18
+</action>
+</apply-actions>
+</instruction>
+</instructions>
+</flow>

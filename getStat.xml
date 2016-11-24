@@ -1,0 +1,38 @@
+To get the statistics use a REST call like the one below:
+GET
+http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/openflow:1/table/0
+To push for a Static Flow,
+Chrome with PostMan:
+Content-Type: application/xml
+Accept: application/xml
+Authentication
+PUT
+http://localhost:8181/restconf/config/opendaylightinventory:
+nodes/node/openflow:1/table/0/flow/1
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="urn:opendaylight:flow:inventory">
+<priority>2</priority>
+<flow-name>Foo</flow-name>
+<match>
+<ethernet-match>
+<ethernet-type>
+<type>2048</type>
+</ethernet-type>
+</ethernet-match>
+<ipv4-destination>10.0.10.2/24</ipv4-destination>
+</match>
+<id>1</id>
+<table_id>0</table_id>
+<instructions>
+16
+<instruction>
+<order>0</order>
+<apply-actions>
+<action>
+<order>0</order>
+<dec-nw-ttl/>
+</action>
+</apply-actions>
+</instruction>
+</instructions>
+</flow>
